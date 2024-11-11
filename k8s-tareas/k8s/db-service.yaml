@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  selector:
+    app: db
+  ports:
+    - protocol: TCP
+      port: 3306    # Puerto dentro del contenedor de MariaDB
+      targetPort: 3306  # Puerto donde MariaDB escucha dentro del contenedor
+      nodePort: 30036   # Puerto que estará expuesto en el host (puedes elegir otro)
+  type: NodePort      # Tipo de servicio para exponer el puerto
